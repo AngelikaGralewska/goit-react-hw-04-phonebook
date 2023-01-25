@@ -1,0 +1,36 @@
+.phonebookInputs{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    width: 300px;
+    font-weight:lighter;
+    padding-top: 25px;
+}
+
+.phonebookInput{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.phonebookInputTitle{
+    font-weight:lighter;
+    margin: 0;
+}
+
+
+.buttonAdd{
+    border: none;
+    cursor: pointer;
+    font-size: small;
+    font-weight: lighter;
+    height: 35px;
+    width: 170px;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.buttonAdd:hover{
+    scale: 110%;
+}

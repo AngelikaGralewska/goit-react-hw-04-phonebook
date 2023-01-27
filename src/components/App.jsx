@@ -46,36 +46,34 @@ export const App = () => {
       number: number,
     };
     
-  setContacts(prevState =>  [...prevState, contact],);
+    setContacts(prevState =>  [...prevState, contact],);
   };
 
   const changeFilter = event => {
-   setFilter (event.currentTarget.value);
+    setFilter (event.currentTarget.value);
   };
 
-  const getContacts = () => {
+  const getFilteredContacts = () => {
     const normalizedFilter = filter.toLowerCase();
 
-   return contacts.filter(contact =>
-   contact.name.toLowerCase().includes(normalizedFilter)
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
     );
- };
+  };
 
   const deleteContact = deleteItem => {
     setContacts(prevState => prevState.filter(contact => contact.id !== deleteItem));
-    };
-  
+  };
 
-  const getContactItem = getContacts();
 
-    return (
-      <div className= {style.mainDiv} >
-        <h1 className={style.title}>Phonebook</h1>
-        <ContactForm onSubmit={addContact} />
-        <h2 className={style.title}>Contacts</h2>
-        <Filter value={filter} filterChange={changeFilter} />
-        <ContactsList contacts={getContactItem} deleteContact={deleteContact} />
-      </div>
-    );
-    };
+  return (
+    <div className= {style.mainDiv} >
+      <h1 className={style.title}>Phonebook</h1>
+      <ContactForm onSubmit={addContact} />
+      <h2 className={style.title}>Contacts</h2>
+      <Filter value={filter} filterChange={changeFilter} />
+      <ContactsList contacts={getFilteredContacts()} deleteContact={deleteContact} />
+    </div>
+  );
+};
 
